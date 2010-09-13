@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=EasyList
+Exec=/opt/easylist/bin/easylist
+Icon=easylist
+StartupWMClass=easylist
+X-Window-Icon=easylist
+X-HildonDesk-ShowInToolbar=true
+X-Osso-Type=application/x-executable
+Terminal=false
+
