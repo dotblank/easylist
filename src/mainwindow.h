@@ -68,6 +68,7 @@ public slots:
     void slotEditWindowCancel();
     void slotListWindowEdit();
     void slotListWindowClearSelected();
+    void slotListWindowSaveChecked();
 
     void slotKeyboardSlide();
 

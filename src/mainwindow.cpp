@@ -169,12 +169,45 @@ void MainWindow::slotListWindowClearSelected()
 }
 
 /**
+ * Prefix all checked items with ! in the list text and save it to QSettings.
+ */
+void MainWindow::slotListWindowSaveChecked()
+{
+    qDebug() << "Save selected";
+    QString listText("");
+    foreach(QCheckBox * cb, checkBoxes)
+    {
+        QString item(cb->text());
+        if(cb->isChecked() == true)
+        {
+            if(item.startsWith("!") == false)
+            {
+                item.push_front("!");
+            }
+            listText.append(item);
+        }
+        else
+        {
+            if(item.startsWith("!") == true)
+            {
+                item = item.replace("!", "");
+            }
+            listText.append(item);
+        }
+        listText.append("\n");
+    }
+
+    settings->setValue("ListText", listText);
+}
+
+/**
  * Show the edit window.
  *
  * @fn showEditWindow
  */
 void MainWindow::showEditWindow()
 {
+    slotListWindowSaveChecked();
     editUi->setupUi(this);
     editUi->textEdit->setText(settings->value("ListText").toString());
     connect(editUi->savePushButton, SIGNAL(clicked()), this, SLOT(slotEditWindowSave()));
@@ -216,6 +249,12 @@ void MainWindow::generateList()
         if(item.length() > 0)
         {
             QCheckBox * cb = new QCheckBox(item);
+            if(item.startsWith("!"))
+            {
+                QString itemName(item.right(item.length()-1));
+                cb->setText(itemName);
+                cb->setChecked(true);
+            }
             checkBoxes.append(cb);
             listUi->listVerticalLayout->addWidget(cb);
         }
@@ -231,6 +270,7 @@ void MainWindow::generateList()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     qDebug() << "Closed";
+    slotListWindowSaveChecked();
     event->accept();
 }
 
