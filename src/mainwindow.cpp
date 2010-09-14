@@ -54,12 +54,16 @@ MainWindow::MainWindow(QWidget *parent) :
         landscape = settings->value("Landscape").toBool();
     }
     settings->setValue("Landscape", landscape);
-    // If keyboard is opened at start.
+    // If keyboard is opened at start. We do landscape mode.
+    // Otherwise we do what's read from the QSettings.
     if(isKeyboardClosed() == false)
     {
-        landscape = true;
+        setLandscapeMode(true);
     }
-    setLandscapeMode(landscape);
+    else
+    {
+        setLandscapeMode(landscape);
+    }
     // Auto-detect portrait/landscape mode. Only works on top widget.
 //    setAttribute(Qt::WA_Maemo5AutoOrientation, true);
     showListWindow();
@@ -97,7 +101,7 @@ bool MainWindow::isKeyboardClosed()
 void MainWindow::slotKeyboardSlide()
 {
     // When keyboard is opened.
-    if(false == isKeyboardClosed())
+    if(isKeyboardClosed() == false)
     {
         setLandscapeMode(true);
     }
@@ -251,11 +255,13 @@ void MainWindow::setLandscapeMode(bool landscape)
 {
     if(landscape)
     {
+        qDebug() << "Landscape";
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
     }
     else
     {
+        qDebug() << "Portrait";
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
     }
