@@ -186,7 +186,7 @@
       <value type="QString">C:/dev/cpp/easylist/src/data/48x48/easylist.png</value>
       <value type="QString">C:/dev/cpp/easylist/src/data/64x64/easylist.png</value>
      </valuelist>
-     <value key="Qt4ProjectManager.BuildStep.MaemoPackage.Modified" type="bool">true</value>
+     <value key="Qt4ProjectManager.BuildStep.MaemoPackage.Modified" type="bool">false</value>
      <value key="Qt4ProjectManager.BuildStep.MaemoPackage.RemoteExe" type="QString">/opt/easylist/bin/easylist</value>
      <valuelist key="Qt4ProjectManager.BuildStep.MaemoPackage.RemoteFiles" type="QVariantList">
       <value type="QString">/usr/share/applications/hildon/easylist.desktop</value>

@@ -29,6 +29,9 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
