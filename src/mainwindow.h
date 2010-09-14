@@ -50,6 +50,7 @@ private:
     QVector<QCheckBox * > checkBoxes;
     QSettings *settings;
     bool landscape;
+    bool tempLandscapeMode;
 
     Ui::EditWindow *editUi;
     Ui::ListWindow *listUi;

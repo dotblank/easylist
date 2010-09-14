@@ -243,7 +243,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::slotActionRotate(QAction* action)
 {
     qDebug() << "Rotate" << action->text();
-    landscape = !landscape;
+
+    landscape = !tempLandscapeMode;
     settings->setValue("Landscape", landscape);
     setLandscapeMode(landscape);
 }
@@ -255,12 +256,14 @@ void MainWindow::setLandscapeMode(bool landscape)
 {
     if(landscape)
     {
+        tempLandscapeMode = true;
         qDebug() << "Landscape";
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
     }
     else
     {
+        tempLandscapeMode = false;
         qDebug() << "Portrait";
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
