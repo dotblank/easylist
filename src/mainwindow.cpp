@@ -53,12 +53,12 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         landscape = settings->value("Landscape").toBool();
     }
+    settings->setValue("Landscape", landscape);
     // If keyboard is opened at start.
     if(isKeyboardClosed() == false)
     {
         landscape = true;
     }
-    settings->setValue("Landscape", landscape);
     setLandscapeMode(landscape);
     // Auto-detect portrait/landscape mode. Only works on top widget.
 //    setAttribute(Qt::WA_Maemo5AutoOrientation, true);
