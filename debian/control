@@ -1,16 +1,18 @@
 Source: easylist
-Section: user/other
+Section: user/utilities
 Priority: extra
 Maintainer: Willem Liu <willem.liu@gmail.com>
-Build-Depends: debhelper (>= 5)
+Build-Depends: debhelper (>= 5), libqt4-dev, autotools-dev, libhildon1 (>= 2.2)
 Standards-Version: 3.7.3
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://gitorious.com/easylist
 
-Package: EasyList
+Package: easylist
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple Check list program
  Simple Check list program
+XSBC-Maemo-Display-Name: EasyList
+XSBC-Bugtracker: mailto:willem.liu@gmail.com
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
  T2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AU
