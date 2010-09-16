@@ -23,14 +23,11 @@ FORMS    += mainwindow.ui \
     listwindow.ui
 
 CONFIG += mobility
-MOBILITY = 
 
 unix {
     #VARIABLES
-    isEmpty(PREFIX) {
-        PREFIX = /usr/local
-    }
-    BINDIR = $$PREFIX/bin
+    PREFIX = /usr
+    BINDIR = /opt/easylist/bin
     DATADIR = $$PREFIX/share
 
     DEFINES += DATADIR=\\\"$$DATADIR\\\" PKGDATADIR=\\\"$$PKGDATADIR\\\"

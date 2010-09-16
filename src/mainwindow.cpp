@@ -24,8 +24,6 @@
 #include "ui_mainwindow.h"
 #include "ui_listwindow.h"
 
-#define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
-
 /**
  * Constructor.
  * Settings are initialised here.
@@ -46,14 +44,21 @@ MainWindow::MainWindow(QWidget *parent) :
                                          QString("PropertyModified"),
                                          this, SLOT(slotKeyboardSlide()));
     // Initialise the settings.
-    settings = new QSettings("WillemLiu", "easylist");
-    // We always start in landscape mode.
-    landscape = settings->value("Landscape").toBool();
-    if(settings->contains("Landscape"))
+    settings = new QSettings(WILLEM_LIU, EASY_LIST);
+
+    // Set a default value for CHECKED_ITEMS_TO_BOTTOM
+    if(settings->contains(CHECKED_ITEMS_TO_BOTTOM) == false)
     {
-        landscape = settings->value("Landscape").toBool();
+        settings->setValue(CHECKED_ITEMS_TO_BOTTOM, false);
     }
-    settings->setValue("Landscape", landscape);
+
+    // We always start in landscape mode.
+    landscape = settings->value(LANDSCAPE).toBool();
+    if(settings->contains(LANDSCAPE))
+    {
+        landscape = settings->value(LANDSCAPE).toBool();
+    }
+    settings->setValue(LANDSCAPE, landscape);
     // If keyboard is opened at start. We do landscape mode.
     // Otherwise we do what's read from the QSettings.
     if(isKeyboardClosed() == false)
@@ -66,6 +71,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     // Auto-detect portrait/landscape mode. Only works on top widget.
 //    setAttribute(Qt::WA_Maemo5AutoOrientation, true);
+
     showListWindow();
 }
 
@@ -141,12 +147,14 @@ void MainWindow::slotEditWindowCancel()
 void MainWindow::slotEditWindowSave()
 {
     qDebug() << "Save";
-    settings->setValue("ListText", editUi->textEdit->toPlainText());
+    settings->setValue(LIST_TEXT, editUi->textEdit->toPlainText());
     showListWindow();
 }
 
 /**
  * Slot for action from Clear selected button in de the list window.
+ * It clears all QCheckBoxes from the layout, removes all checked items from
+ * the list text and finally calls generateList().
  *
  * @fn slotListWindowClearSelected
  */
@@ -164,7 +172,7 @@ void MainWindow::slotListWindowClearSelected()
         }
     }
 
-    settings->setValue("ListText", listText);
+    settings->setValue(LIST_TEXT, listText);
     generateList();
 }
 
@@ -197,7 +205,72 @@ void MainWindow::slotListWindowSaveChecked()
         listText.append("\n");
     }
 
-    settings->setValue("ListText", listText);
+    settings->setValue(LIST_TEXT, listText);
+}
+
+/**
+ * Is called when a checkbox has been clicked.
+ *
+ * @fn slotActionCheckBox
+ * @param bool checked - true if checkbox is checked.
+ */
+void MainWindow::slotActionCheckBox(bool checked)
+{
+    qDebug() << "CheckBox checked=" << checked;
+    slotListWindowSaveChecked();
+    if(settings->value(CHECKED_ITEMS_TO_BOTTOM).toBool())
+    {
+        slotSortCheckedBottom();
+        // Remove all the checkboxes from the screen.
+        foreach(QCheckBox * cb, checkBoxes)
+        {
+            cb->deleteLater();
+        }
+        generateList();
+    }
+    else
+    {
+        qDebug() << "No need to sort items to bottom";
+    }
+}
+
+/**
+ * Sort checked items to bottom of the list text and returns the new list text.
+ *
+ * @fn slotSortCheckedBottom
+ *
+ * @return QString - the new list text.
+ */
+QString MainWindow::slotSortCheckedBottom()
+{
+    QString result(settings->value(LIST_TEXT).toString());
+    if(settings->value(CHECKED_ITEMS_TO_BOTTOM).toBool())
+    {
+        QStringList list = result.split("\n");
+        QString listText("");
+        QString checkedListText("");
+        foreach(QString item, list)
+        {
+            if(item.length() > 0)
+            {
+                if(item.startsWith("!"))
+                {
+                    checkedListText.append(item);
+                    checkedListText.append("\n");
+                }
+                else
+                {
+                    listText.append(item);
+                    listText.append("\n");
+                }
+            }
+        }
+        listText.append(checkedListText);
+        qDebug() << "Sort checked items to bottom";
+        settings->setValue(LIST_TEXT, listText);
+        result = listText;
+    }
+    return result;
 }
 
 /**
@@ -209,7 +282,7 @@ void MainWindow::showEditWindow()
 {
     slotListWindowSaveChecked();
     editUi->setupUi(this);
-    editUi->textEdit->setText(settings->value("ListText").toString());
+    editUi->textEdit->setText(settings->value(LIST_TEXT).toString());
     connect(editUi->savePushButton, SIGNAL(clicked()), this, SLOT(slotEditWindowSave()));
     connect(editUi->cancelPushButton, SIGNAL(clicked()), this, SLOT(slotEditWindowCancel()));
 }
@@ -223,9 +296,12 @@ void MainWindow::showListWindow()
 {
     listUi->setupUi(this);
     listUi->listVerticalLayout->setAlignment(Qt::AlignTop);
+    listUi->actionChecked_Bottom->setChecked(settings->value(CHECKED_ITEMS_TO_BOTTOM).toBool());
+    slotSortCheckedBottom();
     generateList();
     connect(listUi->editListPushButton, SIGNAL(clicked()), this, SLOT(slotListWindowEdit()));
     connect(listUi->clearSelectedPushButton, SIGNAL(clicked()), this, SLOT(slotListWindowClearSelected()));
+    connect(listUi->menuChecked_Bottom, SIGNAL(triggered(QAction*)), this, SLOT(slotActionCheckedBottom(QAction*)));
     connect(listUi->menuAbout, SIGNAL(triggered(QAction*)), this, SLOT(slotActionAbout(QAction*)));
     connect(listUi->menuRotate, SIGNAL(triggered(QAction*)), this, SLOT(slotActionRotate(QAction*)));
 }
@@ -241,7 +317,7 @@ void MainWindow::generateList()
     qDebug() << "Generate List";
 
     checkBoxes.clear();
-    QString text = settings->value("ListText").toString();
+    QString text = settings->value(LIST_TEXT).toString();
     QStringList list = text.split("\n");
 
     foreach(QString item, list)
@@ -249,6 +325,7 @@ void MainWindow::generateList()
         if(item.length() > 0)
         {
             QCheckBox * cb = new QCheckBox(item);
+            connect(cb, SIGNAL(clicked(bool)), this, SLOT(slotActionCheckBox(bool)));
             if(item.startsWith("!"))
             {
                 QString itemName(item.right(item.length()-1));
@@ -285,7 +362,7 @@ void MainWindow::slotActionRotate(QAction* action)
     qDebug() << "Rotate" << action->text();
 
     landscape = !tempLandscapeMode;
-    settings->setValue("Landscape", landscape);
+    settings->setValue(LANDSCAPE, landscape);
     setLandscapeMode(landscape);
 }
 
@@ -297,14 +374,14 @@ void MainWindow::setLandscapeMode(bool landscape)
     if(landscape)
     {
         tempLandscapeMode = true;
-        qDebug() << "Landscape";
+        qDebug() << LANDSCAPE;
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
     }
     else
     {
         tempLandscapeMode = false;
-        qDebug() << "Portrait";
+        qDebug() << PORTRAIT;
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
     }
@@ -324,4 +401,17 @@ void MainWindow::slotActionAbout(QAction* action)
     aboutText.append("Created by Willem Liu.\n");
     aboutText.append("Created with QtCreator.\n");
     QMessageBox::about(this, "EasyList", aboutText);
+}
+
+/**
+ * Is called when the Checked Bottom menu item is triggered.
+ * The menu item is a checkable item. So we need to check if it's checked or not.
+ *
+ * @fn slotActionCheckedBottom
+ * @param QAction* action - the action.
+ */
+void MainWindow::slotActionCheckedBottom(QAction* action)
+{
+    qDebug() << "Checked Bottom" << action->text() << listUi->actionChecked_Bottom->isChecked();
+    settings->setValue(CHECKED_ITEMS_TO_BOTTOM, listUi->actionChecked_Bottom->isChecked());
 }

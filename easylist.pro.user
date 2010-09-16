@@ -46,7 +46,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Debug</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-build-desktop</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.4-build-desktop</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">20</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">2</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
@@ -80,7 +80,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Release</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">0</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-build-desktop</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.4-build-desktop</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">20</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">2</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">true</value>
@@ -123,14 +123,15 @@
      <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
     </valuemap>
     <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.2" type="QVariantMap">
+     <value key="Packaging Enabled" type="bool">true</value>
      <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
      <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MaemoPackageCreationStep</value>
      <valuelist key="Qt4ProjectManager.BuildStep.MaemoPackage.LocalFiles" type="QVariantList">
-      <value type="QString">C:/dev/cpp/easylist/src/data/26x26/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/40x40/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/48x48/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/64x64/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/easylist.desktop</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/26x26/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/40x40/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/48x48/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/64x64/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/easylist.desktop</value>
      </valuelist>
      <value key="Qt4ProjectManager.BuildStep.MaemoPackage.Modified" type="bool">false</value>
      <value key="Qt4ProjectManager.BuildStep.MaemoPackage.RemoteExe" type="QString">/usr/local/bin/easylist</value>
@@ -141,6 +142,7 @@
       <value type="QString">/usr/share/icons/hicolor/64x64/apps/easylist.png</value>
       <value type="QString">/usr/share/applications/hildon/easylist.desktop</value>
      </valuelist>
+     <value key="Version Number" type="QString">0.0.1</value>
     </valuemap>
     <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">3</value>
     <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
@@ -158,7 +160,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Debug</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.4</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">4</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">9</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
@@ -177,14 +179,15 @@
      <value key="Qt4ProjectManager.MakeStep.MakeCommand" type="QString"></value>
     </valuemap>
     <valuemap key="ProjectExplorer.BuildConfiguration.BuildStep.2" type="QVariantMap">
+     <value key="Packaging Enabled" type="bool">true</value>
      <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
      <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MaemoPackageCreationStep</value>
      <valuelist key="Qt4ProjectManager.BuildStep.MaemoPackage.LocalFiles" type="QVariantList">
-      <value type="QString">C:/dev/cpp/easylist/src/easylist.desktop</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/26x26/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/40x40/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/48x48/easylist.png</value>
-      <value type="QString">C:/dev/cpp/easylist/src/data/64x64/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/easylist.desktop</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/26x26/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/40x40/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/48x48/easylist.png</value>
+      <value type="QString">C:/dev/cpp/easylist-0.3.4/src/data/64x64/easylist.png</value>
      </valuelist>
      <value key="Qt4ProjectManager.BuildStep.MaemoPackage.Modified" type="bool">false</value>
      <value key="Qt4ProjectManager.BuildStep.MaemoPackage.RemoteExe" type="QString">/opt/easylist/bin/easylist</value>
@@ -195,6 +198,7 @@
       <value type="QString">/usr/share/icons/hicolor/48x48/apps/easylist.png</value>
       <value type="QString">/usr/share/icons/hicolor/64x64/apps/easylist.png</value>
      </valuelist>
+     <value key="Version Number" type="QString">0.3.4</value>
     </valuemap>
     <value key="ProjectExplorer.BuildConfiguration.BuildStepsCount" type="int">3</value>
     <valuemap key="ProjectExplorer.BuildConfiguration.CleanStep.0" type="QVariantMap">
@@ -212,7 +216,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Release</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">0</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.4</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">4</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">9</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
@@ -223,9 +227,11 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">New Maemo Run Configuration</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.MaemoRunConfiguration</value>
     <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.Arguments" type="QVariantList"/>
-    <valuemap key="Qt4ProjectManager.MaemoRunConfiguration.DebuggingHelpersLastDeployed" type="QVariantMap"/>
     <value key="Qt4ProjectManager.MaemoRunConfiguration.DeviceId" type="qulonglong">1</value>
-    <valuemap key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployed" type="QVariantMap"/>
+    <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedFiles" type="QVariantList"/>
+    <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedHosts" type="QVariantList"/>
+    <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedRemotePaths" type="QVariantList"/>
+    <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes" type="QVariantList"/>
    </valuemap>
    <value key="ProjectExplorer.Target.RunConfigurationCount" type="int">1</value>
   </valuemap>

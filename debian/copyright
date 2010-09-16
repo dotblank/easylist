@@ -1,17 +1,15 @@
-This package was debianized by unknown <> on
+This package was debianized by Willem Liu <willem.liu@gmail.com> on
 Tue, 07 Sep 2010 13:56:12 +0200.
 
-It was downloaded from <url://example.com>
+It was downloaded from http://gitorious.org/easylist
 
 Upstream Author(s):
 
-    <put author's name and email here>
-    <likewise for another author>
+    Willem Liu <willem.liu@gmail.com>
 
 Copyright:
 
-    <Copyright (C) YYYY Name OfAuthor>
-    <likewise for another author>
+    Copyright (C) 2010 Willem Liu
 
 License:
 
@@ -32,7 +30,7 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2010, unknown <> and
+The Debian packaging is (C) 2010, Willem Liu <willem.liu@gmail.com> and
 is licensed under the GPL, see above.
 
 

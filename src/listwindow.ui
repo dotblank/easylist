@@ -112,8 +112,15 @@
     </property>
     <addaction name="actionRotate"/>
    </widget>
+   <widget class="QMenu" name="menuChecked_Bottom">
+    <property name="title">
+     <string>Checked Bottom</string>
+    </property>
+    <addaction name="actionChecked_Bottom"/>
+   </widget>
    <addaction name="menuRotate"/>
    <addaction name="menuAbout"/>
+   <addaction name="menuChecked_Bottom"/>
   </widget>
   <action name="actionAbout">
    <property name="text">
@@ -123,6 +130,17 @@
   <action name="actionRotate">
    <property name="text">
     <string>Rotate</string>
+   </property>
+  </action>
+  <action name="actionChecked_Bottom">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Checked Bottom</string>
    </property>
   </action>
  </widget>

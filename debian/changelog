@@ -1,5 +1,5 @@
-easylist (0.1) unstable; urgency=low
+easylist (0.3.4) unstable; urgency=low
 
-  * Initial Release.
+  * Now supports sorting checked items to bottom of the list.
 
- -- unknown <>  Tue, 07 Sep 2010 13:56:12 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200

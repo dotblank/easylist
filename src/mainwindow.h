@@ -33,6 +33,14 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 
+#define WILLEM_LIU "WillemLiu"
+#define EASY_LIST "easylist"
+#define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
+#define CHECKED_ITEMS_TO_BOTTOM "CheckedItemsToBottom"
+#define LANDSCAPE "Landscape"
+#define PORTRAIT "Portrait"
+#define LIST_TEXT "ListText"
+
 namespace Ui {
     class EditWindow;
     class ListWindow;
@@ -69,10 +77,12 @@ public slots:
     void slotListWindowEdit();
     void slotListWindowClearSelected();
     void slotListWindowSaveChecked();
-
+    void slotActionCheckBox(bool checked);
+    QString slotSortCheckedBottom();
     void slotKeyboardSlide();
 
 private slots:
+    void slotActionCheckedBottom(QAction* action);
     void slotActionAbout(QAction* action);
     void slotActionRotate(QAction* action);
 };
