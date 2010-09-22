@@ -6,8 +6,7 @@
 
 # This needs to be removed in order for the binary
 # to be chmod to 755 in the debian package.
-#QT       += core gui
-QT += dbus
+QT       += core gui
 TARGET = easylist
 TEMPLATE = app
 DEPENDPATH += .
@@ -15,16 +14,32 @@ INCLUDEPATH += .
 DESTDIR = ../
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mycheckbox.cpp\
+    mainform.cpp \
+    mycheckboxcontainer.cpp \
+    systemsettings.cpp \
+    listform.cpp \
+    editform.cpp \
+    slidewidget.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  +=\
+        mycheckbox.h \
+    mainform.h \
+    mycheckboxcontainer.h \
+    systemsettings.h \
+    listform.h \
+    editform.h \
+    slidewidget.h
 
-FORMS    += mainwindow.ui \
-    listwindow.ui
+FORMS    += \
+    mainform.ui \
+    listform.ui \
+    editform.ui
 
 CONFIG += mobility
 
 unix {
+    QT += dbus
     #VARIABLES
     PREFIX = /usr
     BINDIR = /opt/easylist/bin

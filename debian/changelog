@@ -1,5 +1,5 @@
-easylist (0.3.4) unstable; urgency=low
+easylist (0.3.5) unstable; urgency=low
 
-  * Now supports sorting checked items to bottom of the list.
+  * Button added for unchecking all checked items.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
