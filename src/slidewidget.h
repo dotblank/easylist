@@ -8,7 +8,7 @@
 #include <QtCore>
 #include <QWidget>
 #include <QPoint>
-#include <qDebug>
+#include <QDebug>
 
 class SlideWidget : public QWidget
 {
