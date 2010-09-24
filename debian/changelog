@@ -1,5 +1,5 @@
-easylist (0.3.5) unstable; urgency=low
+easylist (0.3.8) unstable; urgency=low
 
-  * Significantly changed the source code. Divided in multiple classes. Using QStackedWidget now for the multiple views. Added uncheck all button.
+  * Fixed a small bug. When going to Edit list mode the list text is saved to QSettings.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200

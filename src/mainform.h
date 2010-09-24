@@ -9,6 +9,7 @@
 #include <QState>
 #include <QAbstractTransition>
 #include <QPropertyAnimation>
+#include <QCloseEvent>
 #include "slidewidget.h"
 #include "listform.h"
 #include "editform.h"
@@ -50,8 +51,11 @@ private:
 
     ListForm * listForm;
     EditForm * editForm;
+protected:
+    void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionAuto_Orientation_triggered();
     void on_actionChecked_bottom_triggered();
     void on_actionAbout_triggered();
     void on_actionRotate_triggered();

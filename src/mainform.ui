@@ -57,9 +57,16 @@
     </property>
     <addaction name="actionChecked_bottom"/>
    </widget>
+   <widget class="QMenu" name="menuAuto_Orientation">
+    <property name="title">
+     <string>Auto Orientation</string>
+    </property>
+    <addaction name="actionAuto_Orientation"/>
+   </widget>
    <addaction name="menuRotate"/>
    <addaction name="menuAbout"/>
    <addaction name="menuChecked_bottom"/>
+   <addaction name="menuAuto_Orientation"/>
   </widget>
   <action name="actionRotate">
    <property name="text">
@@ -77,6 +84,14 @@
    </property>
    <property name="text">
     <string>Checked bottom</string>
+   </property>
+  </action>
+  <action name="actionAuto_Orientation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto Orientation</string>
    </property>
   </action>
  </widget>

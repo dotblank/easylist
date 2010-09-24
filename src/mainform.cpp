@@ -166,3 +166,21 @@ void MainForm::on_actionChecked_bottom_triggered()
     settings->setValue(CHECKED_ITEMS_TO_BOTTOM, sortToBottom);
     MyCheckBoxContainer::getInstance()->setSortCheckedToBottom(sortToBottom);
 }
+
+void MainForm::closeEvent(QCloseEvent *event)
+{
+    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    event->accept();
+}
+
+void MainForm::on_actionAuto_Orientation_triggered()
+{
+    if(ui->actionAuto_Orientation->isChecked())
+    {
+        setAttribute(Qt::WA_Maemo5AutoOrientation, true);
+    }
+    else
+    {
+        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
+    }
+}

@@ -40,7 +40,7 @@ void ListForm::addCheckBoxes()
 
 void ListForm::on_editListPushButton_clicked()
 {
-    // Do animation. Then emit signalEditListPushButtonTriggered when finished.
+    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
     emit signalEditListPushButtonTriggered(this);
 }
 
@@ -52,4 +52,5 @@ void ListForm::on_uncheckAllPushButton_clicked()
 void ListForm::on_clearCheckedPushButton_clicked()
 {
     MyCheckBoxContainer::getInstance()->removeChecked();
+    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
 }
