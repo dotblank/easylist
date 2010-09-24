@@ -63,10 +63,10 @@
     </property>
     <addaction name="actionAuto_Orientation"/>
    </widget>
-   <addaction name="menuRotate"/>
-   <addaction name="menuAbout"/>
    <addaction name="menuChecked_bottom"/>
+   <addaction name="menuRotate"/>
    <addaction name="menuAuto_Orientation"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionRotate">
    <property name="text">

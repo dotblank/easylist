@@ -177,10 +177,17 @@ void MainForm::on_actionAuto_Orientation_triggered()
 {
     if(ui->actionAuto_Orientation->isChecked())
     {
+#ifdef Q_WS_MAEMO_5
+        setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
+        setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
         setAttribute(Qt::WA_Maemo5AutoOrientation, true);
+#endif
     }
     else
     {
+#ifdef Q_WS_MAEMO_5
         setAttribute(Qt::WA_Maemo5AutoOrientation, false);
+#endif
+        setLandscapeMode(landscape);
     }
 }

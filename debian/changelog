@@ -1,4 +1,4 @@
-easylist (0.3.8) unstable; urgency=low
+easylist (0.3.9) unstable; urgency=low
 
   * Fixed a small bug. When going to Edit list mode the list text is saved to QSettings.
 
