@@ -12,6 +12,12 @@ MainForm::MainForm(QWidget *parent) :
 
     connect(SystemSettings::getInstance(), SIGNAL(signalKeyboardClosed(bool)), this, SLOT(keyboardClosed(bool)));
 
+    ui->actionAuto_Orientation->setChecked(settings->value(AUTO_ORIENTATION).toBool());
+    on_actionAuto_Orientation_triggered();
+
+    ui->actionSort_A_Z->setChecked(settings->value(SORT_A_Z).toBool());
+    on_actionSort_A_Z_triggered();
+
     // Set a default value for CHECKED_ITEMS_TO_BOTTOM
     if(settings->contains(CHECKED_ITEMS_TO_BOTTOM) == false)
     {
@@ -35,13 +41,16 @@ MainForm::MainForm(QWidget *parent) :
     }
     // If keyboard is opened at start. We do landscape mode.
     // Otherwise we do what's read from the QSettings.
-    if(SystemSettings::getInstance()->getKeyboardClosed() == false)
+    if(ui->actionAuto_Orientation->isChecked() == false)
     {
-        setLandscapeMode(true);
-    }
-    else
-    {
-        setLandscapeMode(landscape);
+        if(SystemSettings::getInstance()->getKeyboardClosed() == false)
+        {
+            setLandscapeMode(true);
+        }
+        else
+        {
+            setLandscapeMode(landscape);
+        }
     }
 
     // Populate the QStackedWidget. ListForm is set as the current widget.
@@ -108,13 +117,16 @@ void MainForm::changeWidget(SlideWidget * currentWidget)
 void MainForm::keyboardClosed(bool closed)
 {
     // When keyboard is opened.
-    if(closed == false)
+    if(ui->actionAuto_Orientation->isChecked() == false)
     {
-        setLandscapeMode(true);
-    }
-    else
-    {
-        setLandscapeMode(landscape);
+        if(closed == false)
+        {
+            setLandscapeMode(true);
+        }
+        else
+        {
+            setLandscapeMode(landscape);
+        }
     }
 }
 
@@ -125,6 +137,7 @@ void MainForm::setLandscapeMode(bool landscape)
         tempLandscapeMode = true;
         qDebug() << LANDSCAPE;
 #ifdef Q_WS_MAEMO_5
+        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
 #endif
@@ -134,6 +147,7 @@ void MainForm::setLandscapeMode(bool landscape)
         tempLandscapeMode = false;
         qDebug() << PORTRAIT;
 #ifdef Q_WS_MAEMO_5
+        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
 #endif
@@ -144,8 +158,10 @@ void MainForm::on_actionRotate_triggered()
 {
     qDebug() << "Rotate";
 
-    landscape = !tempLandscapeMode;
+    landscape = (width() < height());
     settings->setValue(LANDSCAPE, landscape);
+    ui->actionAuto_Orientation->setChecked(false);
+    settings->setValue(AUTO_ORIENTATION, ui->actionAuto_Orientation->isChecked());
     setLandscapeMode(landscape);
 }
 
@@ -175,6 +191,8 @@ void MainForm::closeEvent(QCloseEvent *event)
 
 void MainForm::on_actionAuto_Orientation_triggered()
 {
+    settings->setValue(AUTO_ORIENTATION, ui->actionAuto_Orientation->isChecked());
+    qDebug() << "Auto orientation" << ui->actionAuto_Orientation->isChecked();
     if(ui->actionAuto_Orientation->isChecked())
     {
 #ifdef Q_WS_MAEMO_5
@@ -185,9 +203,12 @@ void MainForm::on_actionAuto_Orientation_triggered()
     }
     else
     {
-#ifdef Q_WS_MAEMO_5
-        setAttribute(Qt::WA_Maemo5AutoOrientation, false);
-#endif
         setLandscapeMode(landscape);
     }
+}
+
+void MainForm::on_actionSort_A_Z_triggered()
+{
+    settings->setValue(SORT_A_Z, ui->actionSort_A_Z->isChecked());
+    MyCheckBoxContainer::getInstance()->setSortAlphabetically(ui->actionSort_A_Z->isChecked());
 }

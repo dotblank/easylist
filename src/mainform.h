@@ -22,7 +22,9 @@
 #define CHECKED_ITEMS_TO_BOTTOM "CheckedItemsToBottom"
 #define LANDSCAPE "Landscape"
 #define PORTRAIT "Portrait"
+#define AUTO_ORIENTATION "AutoOrientation"
 #define LIST_TEXT "ListText"
+#define SORT_A_Z "SortAlphabetically"
 
 namespace Ui {
     class MainForm;
@@ -55,6 +57,7 @@ protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionSort_A_Z_triggered();
     void on_actionAuto_Orientation_triggered();
     void on_actionChecked_bottom_triggered();
     void on_actionAbout_triggered();

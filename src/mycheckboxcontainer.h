@@ -24,6 +24,7 @@ public:
     void uncheckAll();
     void removeChecked();
     void setSortCheckedToBottom(bool sortToBottom);
+    void setSortAlphabetically(bool sortAlphabetically);
     void sortCheckedToBottom();
 
 private:
@@ -32,6 +33,7 @@ private:
     static int instances;
 
     bool sortToBottom;
+    bool sortAlphabetically;
 
     MyCheckBoxContainer();
 signals:

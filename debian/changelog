@@ -1,5 +1,7 @@
 easylist (0.3.9) unstable; urgency=low
 
-  * Fixed a small bug. When going to Edit list mode the list text is saved to QSettings.
+  * Alphabetical sorting now possible.
+  * Label "Checked bottom" changed to "Checked to bottom".
+  * Automatic display orientation detection now possible.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200

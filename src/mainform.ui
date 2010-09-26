@@ -53,7 +53,7 @@
    </widget>
    <widget class="QMenu" name="menuChecked_bottom">
     <property name="title">
-     <string>Checked bottom</string>
+     <string>Checked to bottom</string>
     </property>
     <addaction name="actionChecked_bottom"/>
    </widget>
@@ -63,6 +63,13 @@
     </property>
     <addaction name="actionAuto_Orientation"/>
    </widget>
+   <widget class="QMenu" name="menuSort_A_Z">
+    <property name="title">
+     <string>Sort A-Z</string>
+    </property>
+    <addaction name="actionSort_A_Z"/>
+   </widget>
+   <addaction name="menuSort_A_Z"/>
    <addaction name="menuChecked_bottom"/>
    <addaction name="menuRotate"/>
    <addaction name="menuAuto_Orientation"/>
@@ -83,7 +90,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Checked bottom</string>
+    <string>Checked to bottom</string>
    </property>
   </action>
   <action name="actionAuto_Orientation">
@@ -92,6 +99,14 @@
    </property>
    <property name="text">
     <string>Auto Orientation</string>
+   </property>
+  </action>
+  <action name="actionSort_A_Z">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Sort A-Z</string>
    </property>
   </action>
  </widget>

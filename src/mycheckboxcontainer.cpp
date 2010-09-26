@@ -8,6 +8,7 @@ MyCheckBoxContainer::MyCheckBoxContainer()
     ++instances;
     qDebug() << "MyCheckBoxContainer instances:" << instances;
     sortToBottom = false;
+    sortAlphabetically = false;
 }
 
 MyCheckBoxContainer::~MyCheckBoxContainer()
@@ -29,6 +30,10 @@ MyCheckBoxContainer * MyCheckBoxContainer::getInstance()
 void MyCheckBoxContainer::add(QString item)
 {
     QStringList list = item.split("\n");
+    if(sortAlphabetically)
+    {
+        list.sort();
+    }
     foreach(QString item, list)
     {
         if(item.length() > 0)
@@ -52,6 +57,7 @@ void MyCheckBoxContainer::add(QString item)
 
 void MyCheckBoxContainer::set(QString item)
 {
+    qDebug() << item;
     clear();
     add(item);
 }
@@ -77,11 +83,43 @@ void MyCheckBoxContainer::sortCheckedToBottom()
         {
             if(item->isChecked())
             {
-                tempListChecked.append(item);
+                if(sortAlphabetically)
+                {
+                    int size = tempListChecked.size();
+                    int pos = 0;
+                    for(pos = 0; pos < size; ++pos)
+                    {
+                        if(tempListChecked[pos]->text() > item->text())
+                        {
+                            break;
+                        }
+                    }
+                    tempListChecked.insert(pos, item);
+                }
+                else
+                {
+                    tempListChecked.append(item);
+                }
             }
             else
             {
-                tempList.append(item);
+                if(sortAlphabetically)
+                {
+                    int size = tempList.size();
+                    int pos = 0;
+                    for(pos = 0; pos < size; ++pos)
+                    {
+                        if(tempList[pos]->text() > item->text())
+                        {
+                            break;
+                        }
+                    }
+                    tempList.insert(pos, item);
+                }
+                else
+                {
+                    tempList.append(item);
+                }
             }
         }
         checkBoxes.clear();
@@ -117,6 +155,10 @@ void MyCheckBoxContainer::uncheckAll()
     {
         item->setChecked(false);
     }
+    if(sortAlphabetically)
+    {
+        set(getListText());
+    }
 }
 
 void MyCheckBoxContainer::removeChecked()
@@ -138,6 +180,15 @@ void MyCheckBoxContainer::setSortCheckedToBottom(bool sortToBottom)
 {
     this->sortToBottom = sortToBottom;
     sortCheckedToBottom();
+}
+
+void MyCheckBoxContainer::setSortAlphabetically(bool sortAlphabetically)
+{
+    this->sortAlphabetically = sortAlphabetically;
+    if(sortAlphabetically)
+    {
+        set(getListText());
+    }
 }
 
 void MyCheckBoxContainer::clickedAction()
