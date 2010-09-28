@@ -7,8 +7,12 @@ MyCheckBox::MyCheckBox(QWidget *parent) :
 {
     ++instances;
     qDebug() << "MyCheckBox instances:" << instances;
+    uncheckedColor = palette();
+    checkedColor.setColor(QPalette::WindowText, Qt::gray);
+
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuActivated(QPoint)));
+    connect(this, SIGNAL(toggled(bool)), this, SLOT(slotTriggered(bool)));
 }
 
 MyCheckBox::MyCheckBox(const QString & text, QWidget *parent) :
@@ -16,8 +20,13 @@ MyCheckBox::MyCheckBox(const QString & text, QWidget *parent) :
 {
     ++instances;
     qDebug() << "MyCheckBox instances:" << instances;
+
+    uncheckedColor = palette();
+    checkedColor.setColor(QPalette::WindowText, Qt::gray);
+
     setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenuActivated(QPoint)));
+    connect(this, SIGNAL(toggled(bool)), this, SLOT(slotTriggered(bool)));
 }
 
 MyCheckBox::~MyCheckBox()
@@ -38,4 +47,19 @@ void MyCheckBox::slotContextMenuActivated(QPoint point)
     QMenu menu(this);
     menu.addAction(tr("Delete"), this, SLOT(slotDeleteClicked()));
     menu.exec(this->mapToGlobal(point));
+}
+
+void MyCheckBox::slotTriggered(bool checked)
+{
+    if(checked)
+    {
+        setPalette(checkedColor);
+    }
+    else
+    {
+        setPalette(uncheckedColor);
+    }
+    QFont f(font());
+    f.setStrikeOut(checked);
+    setFont(f);
 }

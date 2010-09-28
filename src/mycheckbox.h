@@ -15,11 +15,15 @@ public:
     virtual ~MyCheckBox();
 private:
     static int instances;
+
+    QPalette checkedColor;
+    QPalette uncheckedColor;
 signals:
     void signalDeleteClicked(MyCheckBox * myCheckBox);
 public slots:
     void slotContextMenuActivated(QPoint point);
     void slotDeleteClicked();
+    void slotTriggered(bool checked);
 };
 
 #endif // MYCHECKBOX_H

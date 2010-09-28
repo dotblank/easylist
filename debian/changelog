@@ -1,7 +1,6 @@
-easylist (0.3.9) unstable; urgency=low
+easylist (0.3.10) unstable; urgency=low
 
-  * Alphabetical sorting now possible.
-  * Label "Checked bottom" changed to "Checked to bottom".
-  * Automatic display orientation detection now possible.
+  * Alphabetical sorting now ignores case.
+  * Checked items now have grey text instead of white and are striked through.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
