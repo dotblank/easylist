@@ -1,3 +1,9 @@
+easylist (0.3.11) unstable; urgency=low
+
+  * Fixed Sort A-Z bug. Caused list to disappear when turned on with option "Checked To Bottom" turned off.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
 easylist (0.3.10) unstable; urgency=low
 
   * Alphabetical sorting now ignores case.

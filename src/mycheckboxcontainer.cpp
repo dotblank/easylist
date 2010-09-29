@@ -30,6 +30,7 @@ MyCheckBoxContainer * MyCheckBoxContainer::getInstance()
 void MyCheckBoxContainer::add(QString item)
 {
     QStringList list = item.split("\n");
+    qDebug() << "add" << item;
     QStringList list2;
     if(sortAlphabetically)
     {
@@ -46,10 +47,12 @@ void MyCheckBoxContainer::add(QString item)
                     break;
                 }
             }
+            qDebug() << "append" << list[i];
             list2.append(list[i]);
         }
         list = list2;
     }
+    qDebug() << "list" << list;
     foreach(QString item, list)
     {
         if(item.length() > 0)
@@ -73,8 +76,8 @@ void MyCheckBoxContainer::add(QString item)
 
 void MyCheckBoxContainer::set(QString item)
 {
-    qDebug() << item;
     clear();
+    qDebug() << "set" << item;
     add(item);
 }
 
@@ -141,8 +144,8 @@ void MyCheckBoxContainer::sortCheckedToBottom()
         checkBoxes.clear();
         checkBoxes.append(tempList);
         checkBoxes.append(tempListChecked);
-        emit signalSorted();
     }
+    emit signalSorted();
 }
 
 QList<MyCheckBox * > const & MyCheckBoxContainer::getCheckBoxes()

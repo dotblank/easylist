@@ -1,6 +1,35 @@
+easylist (0.3.11) unstable; urgency=low
+
+  * Fixed Sort A-Z bug. Caused list to disappear when turned on with option "Checked To Bottom" turned off.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
 easylist (0.3.10) unstable; urgency=low
 
   * Alphabetical sorting now ignores case.
   * Checked items now have grey text instead of white and are striked through.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
+easylist (0.3.9) unstable; urgency=low
+
+  * Alphabetical sorting now possible.
+  * Label "Checked bottom" changed to "Checked to bottom".
+  * Automatic display orientation detection now possible.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
+easylist (0.3.5) unstable; urgency=low
+
+  * Significantly changed the source code.
+  * Divided in multiple classes.
+  * Using QStackedWidget now for the multiple views.
+  * Added uncheck all button.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
+easylist (0.3.4) unstable; urgency=low
+
+  * Now supports sorting checked items to bottom of the list.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
