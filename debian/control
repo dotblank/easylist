@@ -9,8 +9,12 @@ Homepage: http://gitorious.com/easylist
 Package: easylist
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Simple Check list program
- Simple Check list program
+Description: Simple Check list app.
+ With this app you can enter text in a text area. Each new line is interpreted
+ as a new checkbox item. The app supports portrait as well as landscape
+ orientation. The app can sort checked items to the bottom and/or from A-Z.
+ As a bonus it has a nice slide up/down transition effect when switching
+ between List view and Edit list view modes.
 XSBC-Maemo-Display-Name: EasyList
 XSBC-Bugtracker: mailto:willem.liu@gmail.com
 XB-Maemo-Icon-26:
