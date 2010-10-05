@@ -30,25 +30,31 @@ MyCheckBoxContainer * MyCheckBoxContainer::getInstance()
 void MyCheckBoxContainer::add(QString item)
 {
     QStringList list = item.split("\n");
-    qDebug() << "add" << item;
     QStringList list2;
     if(sortAlphabetically)
     {
+        list2.append(list.takeFirst());
         int listSize = list.size();
         int pos = 0;
+        bool inserted = false;
         for(int i = 0; i < listSize; ++i)
         {
+            inserted = false;
             int list2Size = list2.size();
             for(int j = 0; j < list2Size; ++j)
             {
                 pos = j;
-                if(list[i].toUpper() > list2[j].toUpper())
+                if(list[i].toUpper() < list2[j].toUpper())
                 {
+                    list2.insert(pos, list[i]);
+                    inserted = true;
                     break;
                 }
             }
-            qDebug() << "append" << list[i];
-            list2.append(list[i]);
+            if(inserted == false)
+            {
+                list2.append(list[i]);
+            }
         }
         list = list2;
     }
@@ -77,7 +83,6 @@ void MyCheckBoxContainer::add(QString item)
 void MyCheckBoxContainer::set(QString item)
 {
     clear();
-    qDebug() << "set" << item;
     add(item);
 }
 
