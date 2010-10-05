@@ -1,3 +1,9 @@
+easylist (0.3.14) unstable; urgency=low
+
+  * Changed control description.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
 easylist (0.3.13) unstable; urgency=low
 
   * Changed changelog to include all previous version changes.
