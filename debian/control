@@ -14,7 +14,8 @@ Description: Simple Check list app.
  as a new checkbox item. The app supports portrait as well as landscape
  orientation. The app can sort checked items to the bottom and/or from A-Z.
  As a bonus it has a nice slide up/down transition effect when switching
- between List view and Edit list view modes.
+ between List view and Edit list view modes. Multiple lists is supported since
+ version 0.3.15.
 XSBC-Maemo-Display-Name: EasyList
 XSBC-Bugtracker: mailto:willem.liu@gmail.com
 XB-Maemo-Icon-26:

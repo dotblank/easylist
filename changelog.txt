@@ -1,3 +1,10 @@
+easylist (0.3.15) unstable; urgency=low
+
+  * Support for multiple lists.
+  * Changed order of menu items.
+
+ -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+
 easylist (0.3.14) unstable; urgency=low
 
   * Changed control description.
