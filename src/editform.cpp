@@ -18,17 +18,18 @@ EditForm::~EditForm()
 void EditForm::shown()
 {
     ui->textEdit->setText(MyCheckBoxContainer::getInstance()->getListText());
+    ui->textEdit->setFocus(Qt::ActiveWindowFocusReason);
 }
 
 void EditForm::on_savePushButton_clicked()
 {
     qDebug() << "Save";
     settings->setValue(LIST_TEXT, ui->textEdit->toPlainText());
-    emit signalSavePushButtonClicked(this);
+    emit signalNavigate(0);
 }
 
 void EditForm::on_cancelPushButton_clicked()
 {
     qDebug() << "Cancel";
-    emit signalCancelPushButtonClicked(this);
+    emit signalNavigate(0);
 }

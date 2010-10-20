@@ -56,16 +56,20 @@ MainForm::MainForm(QWidget *parent) :
     // Populate the QStackedWidget. ListForm is set as the current widget.
     listForm = new ListForm(this);
     editForm = new EditForm(this);
+    chooseListForm = new ChooseListForm(this);
 
     connect(listForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
-    connect(listForm, SIGNAL(signalEditListPushButtonTriggered(SlideWidget*)), this, SLOT(changeWidget(SlideWidget*)));
+    connect(listForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
 
     connect(editForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
-    connect(editForm, SIGNAL(signalCancelPushButtonClicked(SlideWidget*)), this, SLOT(changeWidget(SlideWidget*)));
-    connect(editForm, SIGNAL(signalSavePushButtonClicked(SlideWidget*)), this, SLOT(changeWidget(SlideWidget*)));
+    connect(editForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
+
+    connect(chooseListForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
+    connect(chooseListForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
 
     ui->stackedWidget->addWidget(listForm);
     ui->stackedWidget->addWidget(editForm);
+    ui->stackedWidget->addWidget(chooseListForm);
     ui->stackedWidget->setCurrentWidget(listForm);
 }
 
@@ -84,8 +88,9 @@ void MainForm::stateOutFinished()
     newWidget->shown();
 }
 
-void MainForm::changeWidget(SlideWidget * currentWidget)
+void MainForm::changeWidget(int step)
 {
+    SlideWidget * currentWidget = dynamic_cast<SlideWidget * >(ui->stackedWidget->currentWidget());
     currentWidget->initStates();
     int currentIndex = ui->stackedWidget->indexOf(currentWidget);
     // Because all widgets are started with StateOut as initial state, we
@@ -94,23 +99,8 @@ void MainForm::changeWidget(SlideWidget * currentWidget)
     // is never set to StateIn.
     currentWidget->setStateIn();
     qDebug() << "Current widget index" << currentIndex;
-    if(currentIndex < ui->stackedWidget->count()-1)
-    {
-        newIndex = currentIndex+1;
-        currentWidget->setStateOut();
-    }
-    else
-    {
-        if(ui->stackedWidget->count() > 0)
-        {
-            newIndex = 0;
-            currentWidget->setStateOut();
-        }
-        else
-        {
-            qDebug() << "StackedWidget does not have any widgets";
-        }
-    }
+    newIndex = step;
+    currentWidget->setStateOut();
     qDebug() << "New widget index" << newIndex;
 }
 
@@ -211,4 +201,9 @@ void MainForm::on_actionSort_A_Z_triggered()
 {
     settings->setValue(SORT_A_Z, ui->actionSort_A_Z->isChecked());
     MyCheckBoxContainer::getInstance()->setSortAlphabetically(ui->actionSort_A_Z->isChecked());
+}
+
+void MainForm::on_actionLists_triggered()
+{
+    changeWidget(2);
 }

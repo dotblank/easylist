@@ -6,10 +6,7 @@
 #include "mycheckboxcontainer.h"
 #include "systemsettings.h"
 #include "slidewidget.h"
-
-#define WILLEM_LIU "WillemLiu"
-#define EASY_LIST "easylist"
-#define LIST_TEXT "ListText"
+#include "globals.h"
 
 namespace Ui {
     class ListForm;
@@ -30,7 +27,7 @@ private:
 
     Ui::ListForm *ui;
 signals:
-    void signalEditListPushButtonTriggered(SlideWidget * thisWidget);
+    void signalNavigate(int step);
 
 private slots:
     void on_clearCheckedPushButton_clicked();

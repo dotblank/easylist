@@ -6,10 +6,7 @@
 #include <QSettings>
 #include "mycheckboxcontainer.h"
 #include "slidewidget.h"
-
-#define WILLEM_LIU "WillemLiu"
-#define EASY_LIST "easylist"
-#define LIST_TEXT "ListText"
+#include "globals.h"
 
 namespace Ui {
     class EditForm;
@@ -31,8 +28,7 @@ private:
     QSettings * settings;
 
 signals:
-    void signalSavePushButtonClicked(SlideWidget * thisWidget);
-    void signalCancelPushButtonClicked(SlideWidget * thisWidget);
+    void signalNavigate(int step);
 
 private slots:
     void on_cancelPushButton_clicked();

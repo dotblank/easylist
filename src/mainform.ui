@@ -69,10 +69,17 @@
     </property>
     <addaction name="actionSort_A_Z"/>
    </widget>
+   <widget class="QMenu" name="menuList">
+    <property name="title">
+     <string>Lists...</string>
+    </property>
+    <addaction name="actionLists"/>
+   </widget>
+   <addaction name="menuList"/>
+   <addaction name="menuAuto_Orientation"/>
    <addaction name="menuSort_A_Z"/>
    <addaction name="menuChecked_bottom"/>
    <addaction name="menuRotate"/>
-   <addaction name="menuAuto_Orientation"/>
    <addaction name="menuAbout"/>
   </widget>
   <action name="actionRotate">
@@ -107,6 +114,11 @@
    </property>
    <property name="text">
     <string>Sort A-Z</string>
+   </property>
+  </action>
+  <action name="actionLists">
+   <property name="text">
+    <string>Lists...</string>
    </property>
   </action>
  </widget>

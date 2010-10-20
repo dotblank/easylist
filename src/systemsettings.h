@@ -5,8 +5,7 @@
 #include <QDebug>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
-
-#define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
+#include "globals.h"
 
 class SystemSettings : public QObject
 {

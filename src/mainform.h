@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QSettings>
 #include <QDebug>
+#include <QDialog>
 #include <QMessageBox>
 #include <QStateMachine>
 #include <QState>
@@ -13,18 +14,10 @@
 #include "slidewidget.h"
 #include "listform.h"
 #include "editform.h"
+#include "chooselistform.h"
 #include "systemsettings.h"
 #include "mycheckboxcontainer.h"
-
-#define WILLEM_LIU "WillemLiu"
-#define EASY_LIST "easylist"
-#define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
-#define CHECKED_ITEMS_TO_BOTTOM "CheckedItemsToBottom"
-#define LANDSCAPE "Landscape"
-#define PORTRAIT "Portrait"
-#define AUTO_ORIENTATION "AutoOrientation"
-#define LIST_TEXT "ListText"
-#define SORT_A_Z "SortAlphabetically"
+#include "globals.h"
 
 namespace Ui {
     class MainForm;
@@ -42,7 +35,7 @@ public:
 
 public slots:
     void keyboardClosed(bool closed);
-    void changeWidget(SlideWidget * currentWidget);
+    void changeWidget(int step);
     void stateOutFinished();
 private:
     QSettings *settings;
@@ -53,10 +46,12 @@ private:
 
     ListForm * listForm;
     EditForm * editForm;
+    ChooseListForm * chooseListForm;
 protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionLists_triggered();
     void on_actionSort_A_Z_triggered();
     void on_actionAuto_Orientation_triggered();
     void on_actionChecked_bottom_triggered();

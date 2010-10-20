@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     systemsettings.cpp \
     listform.cpp \
     editform.cpp \
-    slidewidget.cpp
+    slidewidget.cpp \
+    chooselistform.cpp
 
 HEADERS  +=\
         mycheckbox.h \
@@ -29,12 +30,15 @@ HEADERS  +=\
     systemsettings.h \
     listform.h \
     editform.h \
-    slidewidget.h
+    slidewidget.h \
+    chooselistform.h \
+    globals.h
 
 FORMS    += \
     mainform.ui \
     listform.ui \
-    editform.ui
+    editform.ui \
+    chooselistform.ui
 
 CONFIG += mobility
 
