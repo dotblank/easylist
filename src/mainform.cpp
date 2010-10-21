@@ -205,5 +205,6 @@ void MainForm::on_actionSort_A_Z_triggered()
 
 void MainForm::on_actionLists_triggered()
 {
+    listForm->saveList();
     changeWidget(2);
 }

@@ -21,6 +21,7 @@ public:
     ~ListForm();
 
     virtual void shown();
+    virtual void saveList();
 
 private:
     QSettings * settings;

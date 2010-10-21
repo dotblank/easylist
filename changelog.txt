@@ -1,9 +1,22 @@
+easylist (0.3.17) unstable; urgency=low
+
+  * Fixed bug when saving to a list template with empty name causes all lists to disappear.
+
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 19:19:00 +0200
+
+easylist (0.3.16) unstable; urgency=low
+
+  * Fixed minor bug. Switching to Lists... view didn't save current list item states.
+  * Added notification when saving list as template.
+
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 19:19:00 +0200
+
 easylist (0.3.15) unstable; urgency=low
 
   * Support for multiple lists.
   * Changed order of menu items.
 
- -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 00:05:00 +0200
 
 easylist (0.3.14) unstable; urgency=low
 

@@ -37,11 +37,15 @@ void ListForm::addCheckBoxes()
     }
 }
 
-
 void ListForm::on_editListPushButton_clicked()
 {
-    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    saveList();
     emit signalNavigate(1);
+}
+
+void ListForm::saveList()
+{
+    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
 }
 
 void ListForm::on_uncheckAllPushButton_clicked()

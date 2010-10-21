@@ -6,7 +6,7 @@
 
 # This needs to be removed in order for the binary
 # to be chmod to 755 in the debian package.
-QT       += core gui
+QT       += core gui maemo5
 TARGET = easylist
 TEMPLATE = app
 DEPENDPATH += .
