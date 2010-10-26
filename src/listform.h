@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QSettings>
+#include <QMessageBox>
 #include "mycheckboxcontainer.h"
 #include "systemsettings.h"
 #include "slidewidget.h"

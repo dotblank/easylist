@@ -9,7 +9,6 @@ MainForm::MainForm(QWidget *parent) :
     settings = new QSettings(WILLEM_LIU, EASY_LIST);
 
     newIndex = 0;
-
     connect(SystemSettings::getInstance(), SIGNAL(signalKeyboardClosed(bool)), this, SLOT(keyboardClosed(bool)));
 
     ui->actionAuto_Orientation->setChecked(settings->value(AUTO_ORIENTATION).toBool());

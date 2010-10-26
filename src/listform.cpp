@@ -55,6 +55,12 @@ void ListForm::on_uncheckAllPushButton_clicked()
 
 void ListForm::on_clearCheckedPushButton_clicked()
 {
-    MyCheckBoxContainer::getInstance()->removeChecked();
-    settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    int res = QMessageBox::warning(this, "Clear selected", "All checked items will be cleared.", QMessageBox::Ok, QMessageBox::Cancel);
+
+    if(res == QMessageBox::Ok)
+    {
+        MyCheckBoxContainer::getInstance()->removeChecked();
+        settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    }
 }
+

@@ -1,3 +1,9 @@
+easylist (0.3.18) unstable; urgency=low
+
+  * Added warning message box when clear checked message is pressed.
+
+ -- Willem Liu <willem.liu@gmail.com>  Thu, 26 Oct 2010 17:47:00 +0200
+
 easylist (0.3.17) unstable; urgency=low
 
   * Fixed bug when saving to a list template with empty name causes all lists to disappear.
