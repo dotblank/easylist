@@ -6,6 +6,7 @@ int SystemSettings::instances = 0;
 SystemSettings::SystemSettings()
 {
     ++instances;
+    settings = new QSettings(WILLEM_LIU, EASY_LIST);
 #ifdef Q_WS_MAEMO_5
     // Connect to DBUS of keyboard slider.
     QDBusConnection::systemBus().connect(QString("org.freedesktop.Hal"),
@@ -42,4 +43,14 @@ bool SystemSettings::getKeyboardClosed()
     qDebug() << "Keyboard is closed:" << closed;
 #endif
     return closed;
+}
+
+void SystemSettings::saveCurrentList()
+{
+    QString listName = settings->value(SELECTED_LIST_NAME, "").toString();
+    if(listName.size() == 0)
+    {
+        listName = LIST_TEXT;
+    }
+    settings->setValue(listName, settings->value(LIST_TEXT, ""));
 }

@@ -175,6 +175,7 @@ void MainForm::on_actionChecked_bottom_triggered()
 void MainForm::closeEvent(QCloseEvent *event)
 {
     settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    SystemSettings::getInstance()->saveCurrentList();
     event->accept();
 }
 

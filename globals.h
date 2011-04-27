@@ -5,6 +5,7 @@
 #define EASY_LIST "easylist"
 #define LIST_TEXT "ListText"
 #define LIST_NAMES "ListName"
+#define SELECTED_LIST_NAME "SelectedListName"
 #define DBUS_KEYBOARD_SLIDE "/org/freedesktop/Hal/devices/platform_slide"
 #define CHECKED_ITEMS_TO_BOTTOM "CheckedItemsToBottom"
 #define LANDSCAPE "Landscape"

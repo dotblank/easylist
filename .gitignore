@@ -1,0 +1,9 @@
+*.ex
+*.o
+moc_*
+*.Debug
+*.Release
+/debug
+/release
+easylist
+easylist.exe

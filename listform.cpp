@@ -46,11 +46,17 @@ void ListForm::on_editListPushButton_clicked()
 void ListForm::saveList()
 {
     settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+    SystemSettings::getInstance()->saveCurrentList();
 }
 
 void ListForm::on_uncheckAllPushButton_clicked()
 {
-    MyCheckBoxContainer::getInstance()->uncheckAll();
+    int res = QMessageBox::warning(this, "Uncheck All", "All items will be unchecked.", QMessageBox::Ok, QMessageBox::Cancel);
+
+    if(res == QMessageBox::Ok)
+    {
+        MyCheckBoxContainer::getInstance()->uncheckAll();
+    }
 }
 
 void ListForm::on_clearCheckedPushButton_clicked()
@@ -61,6 +67,7 @@ void ListForm::on_clearCheckedPushButton_clicked()
     {
         MyCheckBoxContainer::getInstance()->removeChecked();
         settings->setValue(LIST_TEXT, MyCheckBoxContainer::getInstance()->getListText());
+        SystemSettings::getInstance()->saveCurrentList();
     }
 }
 

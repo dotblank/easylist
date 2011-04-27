@@ -25,6 +25,7 @@ void EditForm::on_savePushButton_clicked()
 {
     qDebug() << "Save";
     settings->setValue(LIST_TEXT, ui->textEdit->toPlainText());
+    SystemSettings::getInstance()->saveCurrentList();
     emit signalNavigate(0);
 }
 

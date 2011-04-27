@@ -6,6 +6,7 @@
 #include <QSettings>
 #include "mycheckboxcontainer.h"
 #include "slidewidget.h"
+#include "systemsettings.h"
 #include "globals.h"
 
 namespace Ui {

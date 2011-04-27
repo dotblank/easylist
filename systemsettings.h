@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QSettings>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 #include "globals.h"
@@ -14,11 +15,14 @@ public:
     static SystemSettings * getInstance();
 
     bool getKeyboardClosed();
+    void saveCurrentList();
 private:
     bool landscape;
     static SystemSettings * instance;
     static int instances;
     SystemSettings();
+
+    QSettings * settings;
 
 public slots:
     void slotKeyboardSlide();
