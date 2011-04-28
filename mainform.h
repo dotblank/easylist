@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QSettings>
+#include <QDate>
 #include <QDebug>
 #include <QDialog>
 #include <QMessageBox>
