@@ -175,7 +175,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.23</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.24</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">4</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">9</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
@@ -240,7 +240,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">0</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.23</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">C:/dev/cpp/easylist-0.3.24</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">16</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">9</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">false</value>
@@ -261,8 +261,8 @@
       <value key="Qt4ProjectManager.MaemoRunConfiguration.DeployToSysroot" type="bool">false</value>
       <value key="Qt4ProjectManager.MaemoRunConfiguration.DeviceId" type="qulonglong">1</value>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedFiles" type="QVariantList">
-       <value type="QString">C:/dev/cpp/easylist-0.3.23/easylist_0.3.23_armel.deb</value>
-       <value type="QString">C:/dev/cpp/easylist-0.3.23/easylist_0.3.23_armel.deb</value>
+       <value type="QString">C:/dev/cpp/easylist-0.3.24/easylist_0.3.24_armel.deb</value>
+       <value type="QString">C:/dev/cpp/easylist-0.3.24/easylist_0.3.24_armel.deb</value>
       </valuelist>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedHosts" type="QVariantList">
        <value type="QString">192.168.0.100</value>
