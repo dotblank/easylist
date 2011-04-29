@@ -1,6 +1,7 @@
 easylist (0.3.24) unstable; urgency=low
 
-  * 
+	* Added Sync functionality with http://www.willemliu.nl/qt/maemo/easylist/
+  * Added donation plug in about box.
 
  -- Willem Liu <willem.liu@gmail.com>  Sat, 26 Mar 2011 11:17:23 +0100
 

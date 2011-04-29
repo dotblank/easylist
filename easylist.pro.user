@@ -2,7 +2,7 @@
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
-  <value type="int">2</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.EditorSettings</variable>
@@ -206,7 +206,7 @@
        <value type="QString">-us</value>
       </valuelist>
       <value key="ProjectExplorer.ProcessStep.Command" type="QString">C:/QtSDK/Maemo/4.6.2/wbin/mad.cmd</value>
-      <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">false</value>
+      <value key="ProjectExplorer.ProcessStep.Enabled" type="bool">true</value>
       <value key="ProjectExplorer.ProcessStep.WorkingDirectory" type="QString">$BUILDDIR</value>
       <value key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName" type="QString">Custom Process Step</value>
       <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString"></value>
@@ -273,7 +273,7 @@
        <value type="QString"></value>
       </valuelist>
       <valuelist key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes" type="QVariantList">
-       <value type="QDateTime">2011-04-29T21:34:26</value>
+       <value type="QDateTime">2011-04-29T22:06:16</value>
        <value type="QDateTime">2011-03-26T11:43:07</value>
       </valuelist>
      </valuemap>
