@@ -7,3 +7,4 @@ moc_*
 /release
 easylist
 easylist.exe
+ui*
