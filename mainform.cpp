@@ -230,13 +230,14 @@ void MainForm::on_actionSync_triggered()
     url.append("?username=" + username);
     url.append("&password=" + password);
     qDebug() << url;
-    requestWebpage->fetch(url);
+    requestWebpage->post(url,settings->value(LIST_TEXT,"").toString().toUtf8());
+    //requestWebpage->fetch(url);
 }
 
 void MainForm::slotSyncList(QNetworkReply* pReply)
 {
     QByteArray data=pReply->readAll();
-    QString list(data);
+    QString list = QString::fromUtf8(data);
     settings->setValue(LIST_TEXT, list);
     settings->setValue(SELECTED_LIST_NAME, SYNC_LIST_NAME);
     settings->setValue(SYNC_LIST_NAME, settings->value(LIST_TEXT, ""));

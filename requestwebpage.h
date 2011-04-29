@@ -6,6 +6,7 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
 #include <QCryptographicHash>
+#include <QByteArray>
 
 class RequestWebpage : public QObject
 {
@@ -13,6 +14,7 @@ class RequestWebpage : public QObject
 public:
     explicit RequestWebpage(QObject *parent = 0);
     void fetch(QString url);
+    void post(QString url, QByteArray data);
 
 private:
     QNetworkAccessManager* networkManager;

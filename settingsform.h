@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QSettings>
 #include <QCryptographicHash>
+#include <QMessageBox>
 #include "slidewidget.h"
 #include "globals.h"
 
@@ -24,6 +25,8 @@ public:
 
 signals:
     void signalNavigate(int step);
+protected:
+    bool eventFilter(QObject *obj, QEvent *e);
 
 private slots:
     void on_restoreSyncPushButton_clicked();
