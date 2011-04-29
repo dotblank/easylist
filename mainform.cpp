@@ -8,6 +8,9 @@ MainForm::MainForm(QWidget *parent) :
     ui->setupUi(this);
     settings = new QSettings(WILLEM_LIU, EASY_LIST);
 
+    requestWebpage = new RequestWebpage(this);
+    connect(requestWebpage, SIGNAL(finished(QNetworkReply*)), this, SLOT(slotSyncList(QNetworkReply*)));
+
     newIndex = 0;
     connect(SystemSettings::getInstance(), SIGNAL(signalKeyboardClosed(bool)), this, SLOT(keyboardClosed(bool)));
 
@@ -56,6 +59,7 @@ MainForm::MainForm(QWidget *parent) :
     listForm = new ListForm(this);
     editForm = new EditForm(this);
     chooseListForm = new ChooseListForm(this);
+    settingsForm = new SettingsForm(this);
 
     connect(listForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
     connect(listForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
@@ -66,9 +70,13 @@ MainForm::MainForm(QWidget *parent) :
     connect(chooseListForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
     connect(chooseListForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
 
+    connect(settingsForm, SIGNAL(signalTransitionOutFinished()), this, SLOT(stateOutFinished()));
+    connect(settingsForm, SIGNAL(signalNavigate(int)), this, SLOT(changeWidget(int)));
+
     ui->stackedWidget->addWidget(listForm);
     ui->stackedWidget->addWidget(editForm);
     ui->stackedWidget->addWidget(chooseListForm);
+    ui->stackedWidget->addWidget(settingsForm);
     ui->stackedWidget->setCurrentWidget(listForm);
 }
 
@@ -125,7 +133,7 @@ void MainForm::setLandscapeMode(bool landscape)
     {
         tempLandscapeMode = true;
         qDebug() << LANDSCAPE;
-#ifdef Q_WS_MAEMO_5
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
         setAttribute(Qt::WA_Maemo5AutoOrientation, false);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, true);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, false);
@@ -135,7 +143,7 @@ void MainForm::setLandscapeMode(bool landscape)
     {
         tempLandscapeMode = false;
         qDebug() << PORTRAIT;
-#ifdef Q_WS_MAEMO_5
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
         setAttribute(Qt::WA_Maemo5AutoOrientation, false);
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
@@ -212,4 +220,37 @@ void MainForm::on_actionLists_triggered()
 {
     listForm->saveList();
     changeWidget(2);
+}
+
+void MainForm::on_actionSync_triggered()
+{
+    QString username = settings->value(USERNAME, "").toString();
+    QString password = settings->value(PASSWORD, "").toString();
+    QString url = settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString();
+    url.append("?username=" + username);
+    url.append("&password=" + password);
+    qDebug() << url;
+    requestWebpage->fetch(url);
+}
+
+void MainForm::slotSyncList(QNetworkReply* pReply)
+{
+    QByteArray data=pReply->readAll();
+    QString list(data);
+    settings->setValue(LIST_TEXT, list);
+    settings->setValue(SELECTED_LIST_NAME, SYNC_LIST_NAME);
+    settings->setValue(SYNC_LIST_NAME, settings->value(LIST_TEXT, ""));
+    QStringList listNames = settings->value(LIST_NAMES, "").toStringList();
+    if(listNames.contains(SYNC_LIST_NAME) == false)
+    {
+        listNames.append(SYNC_LIST_NAME);
+    }
+    settings->setValue(LIST_NAMES, QVariant(listNames));
+    changeWidget(0);
+    pReply->deleteLater();
+}
+
+void MainForm::on_actionSetting_triggered()
+{
+    changeWidget(3);
 }

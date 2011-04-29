@@ -16,8 +16,10 @@
 #include "listform.h"
 #include "editform.h"
 #include "chooselistform.h"
+#include "settingsform.h"
 #include "systemsettings.h"
 #include "mycheckboxcontainer.h"
+#include "requestwebpage.h"
 #include "globals.h"
 
 namespace Ui {
@@ -48,16 +50,22 @@ private:
     ListForm * listForm;
     EditForm * editForm;
     ChooseListForm * chooseListForm;
+    SettingsForm * settingsForm;
+
+    RequestWebpage * requestWebpage;
 protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
+    void slotSyncList(QNetworkReply*);
     void on_actionLists_triggered();
     void on_actionSort_A_Z_triggered();
     void on_actionAuto_Orientation_triggered();
     void on_actionChecked_bottom_triggered();
     void on_actionAbout_triggered();
     void on_actionRotate_triggered();
+    void on_actionSync_triggered();
+    void on_actionSetting_triggered();
 };
 
 #endif // MAINFORM_H

@@ -6,7 +6,7 @@
 
 # This needs to be removed in order for the binary
 # to be chmod to 755 in the debian package.
-QT       += core gui maemo5
+QT       += core gui maemo5 network
 TARGET = easylist
 TEMPLATE = app
 DEPENDPATH += .
@@ -21,7 +21,9 @@ SOURCES += main.cpp\
     listform.cpp \
     editform.cpp \
     slidewidget.cpp \
-    chooselistform.cpp
+    chooselistform.cpp \
+    requestwebpage.cpp \
+    settingsform.cpp
 
 HEADERS  +=\
         mycheckbox.h \
@@ -32,13 +34,16 @@ HEADERS  +=\
     editform.h \
     slidewidget.h \
     chooselistform.h \
-    globals.h
+    globals.h \
+    requestwebpage.h \
+    settingsform.h
 
 FORMS    += \
     mainform.ui \
     listform.ui \
     editform.ui \
-    chooselistform.ui
+    chooselistform.ui \
+    settingsform.ui
 
 CONFIG += mobility
 

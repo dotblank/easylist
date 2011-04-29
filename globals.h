@@ -13,6 +13,11 @@
 #define AUTO_ORIENTATION "AutoOrientation"
 #define LIST_TEXT "ListText"
 #define SORT_A_Z "SortAlphabetically"
+#define USERNAME "Username"
+#define PASSWORD "Password"
+#define SYNC_URL "SyncUrl"
+#define DEFAULT_SYNC_URL "http://www.willemliu.nl/qt/maemo/easylist/getList.php"
+#define SYNC_LIST_NAME "SyncList"
 
 static const int BACK = 0;
 static const int FORWARD = 1;

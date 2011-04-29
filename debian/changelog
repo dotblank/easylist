@@ -4,88 +4,88 @@ easylist (0.3.24) unstable; urgency=low
 
  -- Willem Liu <willem.liu@gmail.com>  Sat, 26 Mar 2011 11:17:23 +0100
 
-easylist (0.3.23) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Added prompt when clicked Uncheck All.
 
  -- Willem Liu <willem.liu@gmail.com>  Sat, 26 Mar 2011 11:17:23 +0100
 
-easylist (0.3.22) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Now the list is also saved under its list name.
 
  -- Willem Liu <willem.liu@gmail.com>  Sat, 26 Mar 2011 11:17:23 +0100
 
-easylist (0.3.20) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Repackaged to reduce package size.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 26 Oct 2010 18:08:00 +0200
 
-easylist (0.3.19) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Repackaged to reduce package size.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 26 Oct 2010 18:06:00 +0200
 
-easylist (0.3.18) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Added warning message box when clear checked message is pressed.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 26 Oct 2010 17:47:00 +0200
 
-easylist (0.3.17) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Fixed bug when saving to a list template with empty name causes all lists to disappear.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 19:19:00 +0200
 
-easylist (0.3.16) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Fixed minor bug. Switching to Lists... view didn't save current list item states.
   * Added notification when saving list as template.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 19:19:00 +0200
 
-easylist (0.3.15) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Support for multiple lists.
   * Changed order of menu items.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 21 Oct 2010 00:05:00 +0200
 
-easylist (0.3.14) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Changed control description.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
 
-easylist (0.3.13) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Changed changelog to include all previous version changes.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 13:56:12 +0200
 
-easylist (0.3.12) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Fixed sorting problem.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 29 Sep 2010 03:12:00 +0200
 
-easylist (0.3.11) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Fixed Sort A-Z bug. Caused list to disappear when turned on with option "Checked To Bottom" turned off.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 29 Sep 2010 03:11:00 +0200
 
-easylist (0.3.10) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Alphabetical sorting now ignores case.
   * Checked items now have grey text instead of white and are striked through.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 28 Sep 2010 17:12:00 +0200
 
-easylist (0.3.9) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Alphabetical sorting now possible.
   * Label "Checked bottom" changed to "Checked to bottom".
@@ -93,7 +93,7 @@ easylist (0.3.9) unstable; urgency=low
 
  -- Willem Liu <willem.liu@gmail.com>  Sun, 26 Sep 2010 17:43:00 +0200
 
-easylist (0.3.5) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Significantly changed the source code.
   * Divided in multiple classes.
@@ -102,37 +102,37 @@ easylist (0.3.5) unstable; urgency=low
 
  -- Willem Liu <willem.liu@gmail.com>  Wed, 22 Sep 2010 22:46:00 +0200
 
-easylist (0.3.4) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Now supports sorting checked items to bottom of the list.
 
  -- Willem Liu <willem.liu@gmail.com>  Thu, 16 Sep 2010 13:43:00 +0200
 
-easylist (0.3.1) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Initial Release.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 11:56:00 +0200
 
-easylist (0.3.0) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Changed binary version number.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 11:56:00 +0200
 
-easylist (0.2) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Added optify file.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 11:56:00 +0200
 
-easylist (0.1) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Initial Release.
 
  -- Willem Liu <willem.liu@gmail.com>  Tue, 07 Sep 2010 11:56:00 +0200
 
-easylist (0.0.1) unstable; urgency=low
+easylist (0.3.24) unstable; urgency=low
 
   * Initial Release.
 

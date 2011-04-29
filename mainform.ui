@@ -75,11 +75,25 @@
     </property>
     <addaction name="actionLists"/>
    </widget>
+   <widget class="QMenu" name="menuSync">
+    <property name="title">
+     <string>Sync</string>
+    </property>
+    <addaction name="actionSync"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionSetting"/>
+   </widget>
    <addaction name="menuList"/>
    <addaction name="menuAuto_Orientation"/>
    <addaction name="menuSort_A_Z"/>
    <addaction name="menuChecked_bottom"/>
    <addaction name="menuRotate"/>
+   <addaction name="menuSync"/>
+   <addaction name="menuSettings"/>
    <addaction name="menuAbout"/>
   </widget>
   <action name="actionRotate">
@@ -119,6 +133,16 @@
   <action name="actionLists">
    <property name="text">
     <string>Lists...</string>
+   </property>
+  </action>
+  <action name="actionSync">
+   <property name="text">
+    <string>Sync</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>
