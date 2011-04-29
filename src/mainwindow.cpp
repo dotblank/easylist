@@ -366,11 +366,14 @@ void MainWindow::slotActionRotate(QAction* action)
     setLandscapeMode(landscape);
 }
 
+
+
 /**
  * Set landscape/portrait mode.
  */
 void MainWindow::setLandscapeMode(bool landscape)
 {
+#if defined(Q_WS_MAEMO_5) || defined(Q_WS_HILDON)
     if(landscape)
     {
         tempLandscapeMode = true;
@@ -385,6 +388,7 @@ void MainWindow::setLandscapeMode(bool landscape)
         setAttribute(Qt::WA_Maemo5PortraitOrientation, true);
         setAttribute(Qt::WA_Maemo5LandscapeOrientation, false);
     }
+#endif
 }
 
 /**
