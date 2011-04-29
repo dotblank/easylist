@@ -54,6 +54,7 @@ void SettingsForm::on_restoreSyncPushButton_clicked()
 void SettingsForm::on_applyPushButton_clicked()
 {
     saveSync();
+    shown();
 }
 
 void SettingsForm::on_savePushButton_clicked()
