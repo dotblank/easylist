@@ -29,6 +29,7 @@ void SettingsForm::shown()
     ui->syncUrlLineEdit->setText(settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString());
     ui->syncUsernameLineEdit->setFocus(Qt::ActiveWindowFocusReason);
 }
+
 bool SettingsForm::eventFilter(QObject *obj, QEvent *e)
 {
     if(obj == ui->syncPasswordLineEdit && ui->syncPasswordLineEdit->isReadOnly() && e->type() == QEvent::MouseButtonRelease)
@@ -46,6 +47,7 @@ bool SettingsForm::eventFilter(QObject *obj, QEvent *e)
         return QWidget::eventFilter(obj,e);
     return true;
 }
+
 void SettingsForm::on_restoreSyncPushButton_clicked()
 {
     ui->syncUrlLineEdit->setText(DEFAULT_SYNC_URL);
@@ -54,7 +56,6 @@ void SettingsForm::on_restoreSyncPushButton_clicked()
 void SettingsForm::on_applyPushButton_clicked()
 {
     saveSync();
-    shown();
 }
 
 void SettingsForm::on_savePushButton_clicked()
@@ -70,7 +71,7 @@ void SettingsForm::saveSync()
 
     if(ui->syncPasswordLineEdit->isReadOnly()) //Password is already a hash
     {
-        settings->setValue(PASSWORD,passString);
+        settings->setValue(PASSWORD, passString);
     }
     else
     {
