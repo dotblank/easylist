@@ -24,7 +24,9 @@ void SettingsForm::shown()
     ui->syncUsernameLineEdit->setText(settings->value(USERNAME,"").toString());
     ui->syncPasswordLineEdit->setText(settings->value(PASSWORD,"").toString());
     if(settings->contains(PASSWORD))
+    {
         ui->syncPasswordLineEdit->setReadOnly(true);
+    }
 
     ui->syncUrlLineEdit->setText(settings->value(SYNC_URL, DEFAULT_SYNC_URL).toString());
     ui->syncUsernameLineEdit->setFocus(Qt::ActiveWindowFocusReason);
