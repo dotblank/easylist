@@ -1,3 +1,10 @@
+easylist (0.3.25) unstable; urgency=low
+
+  * Merged with sync window improvements from Dotblank.
+  * Added some minor improvements of my own.
+
+ -- Willem Liu <willem.liu@gmail.com>  Sat, 30 Apr 2011 3:11:23 +0100
+ 
 easylist (0.3.24) unstable; urgency=low
 
   * Added Sync functionality with http://www.willemliu.nl/qt/maemo/easylist/
