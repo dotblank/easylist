@@ -11,3 +11,9 @@ void RequestWebpage::fetch(QString url)
 {
     networkManager->get(QNetworkRequest(QUrl(url)));
 }
+void RequestWebpage::post(QString url, QByteArray data)
+{
+    QNetworkRequest req;
+    req.setUrl(url);
+    networkManager->post(req,data);
+}
