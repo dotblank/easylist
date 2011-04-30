@@ -8,3 +8,5 @@ moc_*
 easylist
 easylist.exe
 ui*
+Makefile*
+*.pro.user
